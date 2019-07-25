@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @excategory.name %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @excategory.desc %>
+</p>
+
+<%= link_to 'Edit', edit_excategory_path(@excategory), class: "btn btn-xs btn-success"  %> |
+<%= link_to 'Back', excategories_path ,class: "btn btn-xs btn-primary"%>

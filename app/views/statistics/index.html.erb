@@ -1,0 +1,89 @@
+<center><font size="100"> Expense Statistic</font></center>
+<select id="select01">
+  <option disabled  selected>Select</option>
+  <option value="month" >Last 31 days</option>
+  <option value="week">Last 7 days</option>
+  <option value="year" >Last year</option>
+  <option value="pie">Expenses by categories(Total)</option>
+</select>
+
+<div class="myClass" id="pie">
+    <table style="width:20%" >
+      <% @expenses.select("DISTINCT(excategory_id)").each do |expense| %>
+      <tr>
+        <td><%= expense.excategory_id %></td>
+        <td><%= expense.excategory.name if expense.excategory_id? %></td>
+
+      </tr><% end %>
+    </table>
+
+  <%= pie_chart Expense.group(:excategory_id).sum('price') %>
+</div>
+
+<div class="myClass" id="month">
+  <%= line_chart Expense.group_by_day(:updated_at, last: 31, current: true).sum('price'),
+                 title: 'Monthly Spending',
+                 colors: ['blue'],
+                 library: {
+                     yAxis: {
+                         labels: {
+                             format: '${value}'
+                         }
+                     },
+                     tooltip: {
+                         pointFormat: 'Total Spent: <b>{point.y}</b>',
+                         xDateFormat: '%B',
+                         valuePrefix: '$'
+                     }
+                 }
+  %>
+</div>
+
+<div class="myClass" id="week">
+  <%= line_chart Expense.group_by_day(:updated_at, last: 7, current: true).sum('price'),
+                 title: 'Weekly Spending',
+                 colors: ['green'],
+                 library: {
+                     yAxis: {
+                         labels: {
+                             format: '${value}'
+                         }
+                     },
+                     tooltip: {
+                         pointFormat: 'Total Spent: <b>{point.y}</b>',
+                         xDateFormat: '%B',
+                         valuePrefix: '$'
+                     }
+                 }
+  %>
+</div>
+<div class="myClass" id="year">
+  <%= line_chart Expense.group_by_month(:updated_at, last: 12, current: true).sum('price'),
+                 title: 'Year',
+                 colors: ['red'],
+                 library: {
+                     yAxis: {
+                         labels: {
+                             format: '${value}'
+                         }
+                     },
+                     tooltip: {
+                         pointFormat: 'Total Spent: <b>{point.y}</b>',
+                         xDateFormat: '%B',
+                         valuePrefix: '$'
+                     }
+                 }
+  %>
+</div>
+
+
+<script>
+    $(function () {
+        $("#admin").show();
+
+        $("#select01").on("change", function () {
+            $(".myClass").hide();
+            $("div[id='" + $(this).val() + "']").show();
+        });
+    });
+</script>

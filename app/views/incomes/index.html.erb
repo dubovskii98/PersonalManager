@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Incomes</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Category</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @incomes.each do |income| %>
+      <tr>
+        <td><%= income.name %></td>
+        <td><%= income.price %></td>
+        <td><%= income.incategory.name if income.incategory_id? %></td>
+        <td><%= income.updated_at.strftime("%B %d %Y") %></td>
+        <td><%= link_to 'Show', income ,class: "btn btn-xs  btn-info"%></td>
+        <td><%= link_to 'Edit', edit_income_path(income),class: "btn btn-xs btn-primary" %></td>
+        <td><%= link_to 'Destroy', income, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-xs btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Income', new_income_path ,class: "btn btn-xs btn-primary" %>
+<%= link_to "Back", root_path , class: "btn btn-xs btn-success" %>

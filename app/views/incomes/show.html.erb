@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @income.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @income.price %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @income.desc %>
+</p>
+
+<p>
+  <strong>Create date:</strong>
+  <%= @income.create_date %>
+</p>
+
+<p>
+  <strong>Upd date:</strong>
+  <%= @income.upd_date %>
+</p>
+
+<p>
+  <strong>Incategory:</strong>
+  <%= @income.incategory.name if @income.incategory_id?%>
+</p>
+
+<%= link_to 'Edit', edit_income_path(@income) , class: "btn btn-xs btn-success" %> |
+<%= link_to 'Back', incomes_path ,class: "btn btn-xs btn-primary" %>

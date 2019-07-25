@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  price: 1.5
+  desc: MyText
+  create_date: 2019-07-17 14:43:18
+  upd_date: 2019-07-17 14:43:18
+  excategory_id: MyString
+
+two:
+  name: MyString
+  price: 1.5
+  desc: MyText
+  create_date: 2019-07-17 14:43:18
+  upd_date: 2019-07-17 14:43:18
+  excategory_id: MyString

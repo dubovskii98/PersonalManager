@@ -1,0 +1,73 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "bootstrap-daterangepicker-3";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,300);
+@import url(https://fonts.googleapis.com/css?family=Squada+One);
+body {
+  padding: 20px 60px;
+  background: #eee url(https://subtlepatterns.com/patterns/extra_clean_paper.png);
+}
+#logos {
+  font-family: 'Open Sans', sans-serif;
+  color: #555;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 130px;
+  font-weight: 800;
+  letter-spacing: -3px;
+  line-height: 1;
+  text-shadow: #EDEDED 3px 2px 0;
+  position: relative;
+}
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}#logo:hover {
+   color: #fff;
+   text-decoration: none;
+ }.article-actions {
+    border-top: 1px solid #eaeaea;
+    padding-top: 5px;
+  }.article-title {
+     font-weight: bold;
+     font-size: 1.5em;
+   }.article-body {
+      border-top: 1px solid #eaeaea;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }.article-meta-details {
+       border-top: 1px solid #eaeaea;
+       margin-top: 15px;
+     }.description {
+        margin-top: 0;
+      }.listing {
+         list-style: none;
+         padding-left: 0;
+       }
+.myClass
+{
+  display: none;
+}
+table, th, td {
+  border: 1px solid black;
+}
+.elegantshd {
+  text-align: center;
+  font-weight: normal;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1em;
+  white-space: nowrap;
+  font-size: 1vw;
+  z-index: 1000;
+  font-family: 'Bangers', cursive;
+  text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.7);
+}
+.CatMarg {
+  margin-left: 17%; /* Отступы вокруг элемента */
+  text-align: justify;
+}

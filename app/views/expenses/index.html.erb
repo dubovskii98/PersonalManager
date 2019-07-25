@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Expenses</h1>
+
+<table>
+  <thead>
+  <table class="table table-bordered">
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Category</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @expenses.each do |expense| %>
+      <tr>
+        <td><%= expense.name%></td>
+        <td><%= expense.price %></td>
+        <td><%= expense.excategory.name if expense.excategory_id? %></td>
+        <td><%= expense.updated_at.strftime("%B %d %Y") %></td>
+        <td><%= link_to 'Show', expense,class: "btn btn-xs  btn-info" %></td>
+        <td><%= link_to 'Edit', edit_expense_path(expense),class: "btn btn-xs btn-primary" %> </td>
+        <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-xs btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+  <%= link_to "New Expense", new_expense_path, class: "btn btn-xs btn-primary" %> |
+<%= link_to 'Back', root_path, class: "btn btn-xs btn-success" %>
